@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pâtisserie Madeleine et Proust – Authentic French Pastries in Tunis</title>
+  <meta name="description" content="Pâtisserie Madeleine et Proust – Premium French pastry shop in Tunis. Handcrafted madeleines, macarons, mille-feuille, éclairs & custom cakes. Open until 22:30."/>
+  <meta name="keywords" content="pâtisserie tunis, french pastry tunis, madeleine proust, macarons tunis, gâteaux tunis"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --cream: #faf6f0;
+      --cream-dark: #f2ebe0;
+      --white: #ffffff;
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dark: #a07830;
+      --brown: #6b4226;
+      --brown-light: #9b6b47;
+      --pink: #f5d5d0;
+      --pink-dark: #e8b5ae;
+      --charcoal: #2c2319;
+      --text: #3d2b1a;
+      --text-light: #7a614c;
+      --border: rgba(201,168,76,0.25);
+      --shadow: 0 8px 40px rgba(44,35,25,0.12);
+      --shadow-lg: 0 20px 60px rgba(44,35,25,0.18);
+      --radius: 2px;
+      --nav-h: 80px;
+      --transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { border: none; outline: none; cursor: pointer; font-family: inherit; }
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY UTILITIES
+    ============================================================ */
+    .serif { font-family: 'Cormorant Garamond', serif; }
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .gold-line {
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 1.2rem 0 1.8rem;
+    }
+    .gold-line.center { margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       STICKY NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(250,246,240,0.97);
+      box-shadow: 0 2px 24px rgba(44,35,25,0.1);
+    }
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
+      line-height: 1.2;
+    }
+    #navbar.scrolled .nav-logo { color: var(--charcoal); }
+    .nav-logo span { display: block; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 1px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a:hover { color: var(--gold-light); }
+    #navbar.scrolled .nav-links a { color: var(--text-light); }
+    #navbar.scrolled .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(201,168,76,0.6);
+      color: var(--gold-light) !important;
+      transition: background var(--transition), color var(--transition) !important;
+      border-radius: var(--radius);
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--white) !important; }
+    .nav-cta::after { display: none !important; }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    #navbar.scrolled .nav-toggle span { background: var(--charcoal); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.06);
+      transition: transform 8s ease;
+    }
+    #hero.loaded .hero-bg { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30,20,10,0.55) 0%,
+        rgba(30,20,10,0.38) 50%,
+        rgba(30,20,10,0.72) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.18);
+      border: 1px solid rgba(201,168,76,0.45);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border-radius: 40px;
+      margin-bottom: 1.8rem;
+      animation: fadeDown 0.8s ease 0.2s both;
+    }
+    .hero-badge i { font-size: 0.65rem; }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.9s ease 0.35s both;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.7;
+      margin-bottom: 2.8rem;
+      animation: fadeUp 0.9s ease 0.5s both;
+    }
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease 0.65s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 2.2rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 2.2rem;
+      background: transparent;
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: var(--radius);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.7);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: pulse 2s ease infinite;
+    }
+    .hero-scroll i { font-size: 1rem; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity:0.5; } 50% { opacity:1; } }
+
+    /* ============================================================
+       STATS STRIP
+    ============================================================ */
+    .stats-strip {
+      background: var(--charcoal);
+      padding: 2.2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 2rem;
+      border-right: 1px solid rgba(201,168,76,0.2);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.35rem;
+    }
+
+    /* ============================================================
+       SECTIONS GENERIC
+    ============================================================ */
+    section { padding: 7rem 5%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about {
+      background: var(--white);
+      padding: 7rem 5%;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-image-accent {
+      position: absolute;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      right: -2rem;
+      bottom: -2.5rem;
+      border: 6px solid var(--white);
+      box-shadow: var(--shadow);
+    }
+    .about-badge {
+      position: absolute;
+      top: 2rem; left: -1.5rem;
+      background: var(--gold);
+      color: var(--white);
+      padding: 1.1rem 1.4rem;
+      text-align: center;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+    }
+    .about-badge .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+    .about-badge .txt {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    .about-text .section-subtitle { max-width: 100%; }
+    .about-features {
+      margin-top: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .about-feature-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+    .about-feature h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.2rem;
+    }
+    .about-feature p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ============================================================
+       PRODUCTS
+    ============================================================ */
+    #products {
+      background: var(--cream);
+      padding: 7rem 5%;
+    }
+    .products-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(44,35,25,0.07);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+    .product-tag {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 40px;
+    }
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,35,25,0.7) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .product-card:hover .product-overlay { opacity: 1; }
+    .product-order-btn {
+      width: 100%;
+      padding: 0.65rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: background var(--transition);
+    }
+    .product-order-btn:hover { background: var(--gold-dark); }
+    .product-info {
+      padding: 1.4rem;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.35rem;
+    }
+    .product-desc {
+      font-size: 0.84rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+    }
+    .product-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.05em; }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #3d2b1a 100%);
+      padding: 7rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    #services::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .services-header .section-title { color: var(--white); }
+    .services-header .section-subtitle { color: rgba(255,255,255,0.55); margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: background var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .service-card:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.45);
+      transform: translateY(-6px);
+    }
+    .service-icon {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, rgba(201,168,76,0.4), rgba(201,168,76,0.2));
+      transform: scale(1.1);
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       REVIEWS
+    ============================================================ */
+    #reviews {
+      background: var(--white);
+      padding: 7rem 5%;
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .rating-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+    .rating-info { text-align: left; }
+    .rating-stars { color: var(--gold); font-size: 1rem; letter-spacing: 0.05em; }
+    .rating-count { font-size: 0.8rem; color: var(--text-light); margin-top: 0.2rem; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .review-card::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold-light);
+      position: absolute;
+      top: 0.2rem; left: 1.2rem;
+      line-height: 1;
+      opacity: 0.5;
+    }
+    .review-stars { color: var(--gold); margin-bottom: 1rem; font-size: 0.85rem; }
+    .review-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+    .review-date { font-size: 0.75rem; color: var(--text-light); }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery {
+      background: var(--cream-dark);
+      padding: 7rem 5%;
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 200px);
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44,35,25,0);
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+    }
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(44,35,25,0.4);
+    }
+    .gallery-overlay i {
+      color: var(--white);
+      font-size: 1.4rem;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .gallery-item:hover .gallery-overlay i {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ============================================================
+       NEWSLETTER
+    ============================================================ */
+    #newsletter {
+      background: linear-gradient(135deg, var(--pink) 0%, #f7e8d8 100%);
+      padding: 5.5rem 5%;
+      text-align: center;
+    }
+    .newsletter-inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .newsletter-inner .section-title { color: var(--brown); }
+    .newsletter-inner .section-subtitle { margin: 0 auto; color: var(--brown-light); }
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      margin-top: 2rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(107,66,38,0.2);
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.4rem;
+      border: none;
+      outline: none;
+      background: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .newsletter-form input::placeholder { color: var(--text-light); }
+    .newsletter-form button {
+      padding: 1rem 1.8rem;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--gold-dark); }
+    .newsletter-note { font-size: 0.75rem; color: var(--brown-light); margin-top: 0.8rem; }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      background: var(--white);
+      padding: 7rem 5%;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--charcoal);
+      margin-bottom: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-item-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .contact-item-val {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .contact-item-val a { color: var(--text); transition: color 0.3s; }
+    .contact-item-val a:hover { color: var(--gold); }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    .hours-day { color: var(--text-light); }
+    .hours-time { color: var(--charcoal); font-weight: 500; }
+    .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      margin-top: 0.8rem;
+    }
+    .open-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+      animation: blink 1.5s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    .social-link {
+      width: 40px; height: 40px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+    .social-link:hover {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 1.5rem;
+      height: 220px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* Contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .form-group input, .form-group textarea, .form-group select {
+      padding: 0.85rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-submit {
+      padding: 1rem;
+      background: var(--charcoal);
+      color: var(--gold-light);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    }
+    .form-submit:hover { background: var(--gold); color: var(--white); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem 5% 2rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+    }
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .footer-brand .tagline {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+    .footer-social {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      transition: background var(--transition), color var(--transition);
+    }
+    .footer-social a:hover { background: var(--gold); color: var(--white); }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.3s;
+    }
+    .footer-col ul a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+    }
+    .footer-bottom a { color: var(--gold); }
+
+    /* ============================================================
+       FLOATING BUTTONS
+    ============================================================ */
+    .float-btns {
+      position: fixed;
+      bottom: 2rem;
+      right: 1.5rem;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .float-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    }
+    .float-btn-order {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .float-btn-wa {
+      background: #25d366;
+      color: var(--white);
+    }
+    .float-btn i { font-size: 1rem; }
+    .float-label { display: none; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      :root { --nav-h: 70px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 2rem 5%; gap: 1.5rem; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { color: var(--text) !important; font-size: 0.9rem; }
+      .nav-toggle { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-image-wrap { max-width: 500px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 5rem 5%; }
+      .stats-strip { flex-direction: column; gap: 2rem; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-bottom: 2rem; width: 100%; }
+      .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.8rem; }
+      .float-btn-order .float-label { display: none; }
+      .newsletter-form { flex-direction: column; border-radius: var(--radius); }
+      .newsletter-form input { border-radius: var(--radius); }
+      .newsletter-form button { border-radius: var(--radius); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      Madeleine et Proust
+      <span>Pâtisserie · Tunis</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Notre Histoire</a></li>
+      <li><a href="#products">Produits</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Avis</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact" class="nav-cta">Commander</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fa-solid fa-star"></i>
+      Ouvert maintenant · Ferme à 22h30
+    </div>
+    <h1 class="hero-title">
+      Authentic French Pastries<br>in the <em>Heart of Tunis</em>
+    </h1>
+    <p class="hero-sub">
+      Handcrafted with passion. Inspired by Parisian tradition.<br>
+      Each creation tells a story — yours begins here.
+    </p>
+    <div class="hero-buttons">
+      <a href="#products" class="btn-primary">
+        <i class="fa-regular fa-book-open"></i> View Menu
+      </a>
+      <a href="#contact" class="btn-outline">
+        <i class="fa-regular fa-bag-shopping"></i> Order Now
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <i class="fa-regular fa-chevron-down"></i>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS STRIP
+============================================================ -->
+<div class="stats-strip">
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="452">0</div>
+    <div class="stat-label">Happy Customers</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.15s">
+    <div class="stat-num"><span data-target="4.2" data-decimal="true">0</span><span style="font-size:1.4rem">/5</span></div>
+    <div class="stat-label">Average Rating</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.3s">
+    <div class="stat-num" data-target="12">0</div>
+    <div class="stat-label">Years of Excellence</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:0.45s">
+    <div class="stat-num" data-target="47">0</div>
+    <div class="stat-label">Signature Recipes</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal-left">
+      <img class="about-image-main" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80" alt="Artisan pastry chef at work" loading="lazy"/>
+      <img class="about-image-accent" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=500&q=80" alt="Freshly baked croissants" loading="lazy"/>
+      <div class="about-badge">
+        <span class="num">★ 4.2</span>
+        <span class="txt">452 Reviews</span>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <span class="section-label">Notre Histoire</span>
+      <h2 class="section-title">A Taste of Paris,<br>Born in Tunis</h2>
+      <span class="gold-line"></span>
+      <p class="section-subtitle" style="margin-bottom:1rem">
+        Pâtisserie Madeleine et Proust is more than a bakery — it is a sensory journey. Named after Proust's famous madeleine, the little cake that unlocked a universe of memory, we believe every bite should transport you.
+      </p>
+      <p class="section-subtitle">
+        Founded in the heart of Tunis, our artisans draw from classic French baking traditions to craft desserts of extraordinary refinement — viennoiseries, entremets, custom celebration cakes, and gourmet treats — using only the finest ingredients.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+          <div>
+            <h4>Premium Ingredients</h4>
+            <p>Imported French butter, Valrhona chocolate & fresh local produce.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i class="fa-solid fa-hands"></i></div>
+          <div>
+            <h4>Handcrafted Daily</h4>
+            <p>Every piece baked fresh each morning with artisan precision.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div>
+            <h4>Culinary Excellence</h4>
+            <p>Recipes inspired by the finest pâtisseries of Paris & Lyon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS
+============================================================ -->
+<section id="products">
+  <div class="products-header reveal">
+    <span class="section-label">Nos Créations</span>
+    <h2 class="section-title">Signature Pastries</h2>
+    <span class="gold-line center"></span>
+    <p class="section-subtitle" style="margin:0 auto">Each creation is a labor of love — a story told in butter, cream, and finest chocolate.</p>
+  </div>
+  <div class="products-grid container">
+
+    <div class="product-card reveal" style="transition-delay:0.05s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=600&q=80" alt="Madeleines" loading="lazy"/>
+        <span class="product-tag">Signature</span>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Madeleines</h3>
+        <p class="product-desc">Our namesake — light, buttery, shell-shaped cakes infused with lemon zest and vanilla.</p>
+        <div class="product-footer">
+          <span class="product-price">8 DT / boîte</span>
+          <span class="product-stars">★★★★★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.1s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=80" alt="Macarons" loading="lazy"/>
+        <span class="product-tag">Best Seller</span>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Macarons</h3>
+        <p class="product-desc">Crisp meringue shells with silky ganache — rose, pistachio, salted caramel & more.</p>
+        <div class="product-footer">
+          <span class="product-price">3.5 DT / pièce</span>
+          <span class="product-stars">★★★★★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.15s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=600&q=80" alt="Mille-feuille" loading="lazy"/>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Mille-feuille</h3>
+        <p class="product-desc">Layers of crispy puff pastry and velvety diplomat cream — a timeless French classic.</p>
+        <div class="product-footer">
+          <span class="product-price">12 DT</span>
+          <span class="product-stars">★★★★☆</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.2s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&q=80" alt="Éclairs" loading="lazy"/>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Éclairs</h3>
+        <p class="product-desc">Choux pastry filled with chocolate, vanilla or coffee cream and glazed to perfection.</p>
+        <div class="product-footer">
+          <span class="product-price">5.5 DT</span>
+          <span class="product-stars">★★★★★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.25s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Croissants" loading="lazy"/>
+        <span class="product-tag">Matinal</span>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Croissants</h3>
+        <p class="product-desc">Buttery, flaky, golden. Laminated 72 hours for 729 perfect layers of crunch.</p>
+        <div class="product-footer">
+          <span class="product-price">3 DT</span>
+          <span class="product-stars">★★★★★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.3s">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Tartes aux fruits" loading="lazy"/>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Tartes aux Fruits</h3>
+        <p class="product-desc">Seasonal fresh fruits atop silky pastry cream in a buttery shortcrust shell.</p>
+        <div class="product-footer">
+          <span class="product-price">22 DT</span>
+          <span class="product-stars">★★★★☆</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.35s; grid-column: span 1;">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&q=80" alt="Custom Celebration Cakes" loading="lazy"/>
+        <span class="product-tag">Sur commande</span>
+        <div class="product-overlay">
+          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Gâteaux de Fête</h3>
+        <p class="product-desc">Custom celebration cakes designed and crafted for your most special moments.</p>
+        <div class="product-footer">
+          <span class="product-price">Sur devis</span>
+          <span class="product-stars">★★★★★</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services">
+  <div class="services-header reveal">
+    <span class="section-label">Nos Services</span>
+    <h2 class="section-title">How We Serve You</h2>
+    <span class="gold-line center"></span>
+    <p class="section-subtitle">Every visit, every order — an experience crafted with the same care as our pastries.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal" style="transition-delay:0.05s">
+      <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+      <h3 class="service-name">Dine-In Experience</h3>
+      <p class="service-desc">Settle into our elegant salon and savour your pastry with a coffee in a warm Parisian atmosphere.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.15s">
+      <div class="service-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+      <h3 class="service-name">Takeaway Orders</h3>
+      <p class="service-desc">Everything beautifully packaged in our signature gift boxes — perfect for treats on the go.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.25s">
+      <div class="service-icon"><i class="fa-solid fa-motorcycle"></i></div>
+      <h3 class="service-name">Fast Delivery</h3>
+      <p class="service-desc">Fresh pastries delivered to your door in Tunis. Order by phone or WhatsApp for same-day delivery.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.35s">
+      <div class="service-icon"><i class="fa-solid fa-cake-candles"></i></div>
+      <h3 class="service-name">Custom Cake Orders</h3>
+      <p class="service-desc">Bespoke celebration cakes crafted to your vision — weddings, birthdays, corporate events and more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+============================================================ -->
+<section id="reviews">
+  <div class="reviews-header reveal">
+    <span class="section-label">Témoignages</span>
+    <h2 class="section-title">What Our Guests Say</h2>
+    <span class="gold-line center"></span>
+    <div class="rating-badge">
+      <div class="rating-num">4.2</div>
+      <div class="rating-info">
+        <div class="rating-stars">★★★★☆</div>
+        <div class="rating-count">Based on 452 verified reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid container">
+
+    <div class="review-card reveal" style="transition-delay:0.05s">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The madeleines are extraordinary — soft, fragrant, and utterly Proustian. This place has become our Sunday ritual. The service is impeccable and the atmosphere is divine."</p>
+      <div class="review-author">
+        <div class="review-avatar">L</div>
+        <div>
+          <div class="review-name">Leila Ben Salah</div>
+          <div class="review-date">Mars 2025 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.15s">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Ordered a custom birthday cake and it was absolutely breathtaking. The flavors were perfect — not too sweet, with incredible depth. Highly recommend for any special occasion."</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <div class="review-name">Ahmed Trabelsi</div>
+          <div class="review-date">Janvier 2025 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.25s">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"Best croissants in Tunis, full stop. Properly laminated, golden outside, airy inside. The macarons rival anything I've had in Paris. A true gem in Les Berges du Lac."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sophie Marchand</div>
+          <div class="review-date">Février 2025 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.35s">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The eclairs are a revelation — perfectly choux, rich ganache, gorgeous glaze. The delivery arrived beautifully packaged and on time. Will absolutely order again!"</p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Mariam Oueslati</div>
+          <div class="review-date">Avril 2025 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.45s">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"A beautiful space with genuinely excellent pastries. The mille-feuille was textbook perfect. The staff were warm and knowledgeable. A must-visit pâtisserie in the capital."</p>
+      <div class="review-author">
+        <div class="review-avatar">Y</div>
+        <div>
+          <div class="review-name">Youssef Khelifi</div>
+          <div class="review-date">Décembre 2024 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.55s">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"We ordered a wedding cake and the team exceeded every expectation. The attention to detail was extraordinary — both visually and in flavor. Truly a pâtisserie of Parisian caliber."</p>
+      <div class="review-author">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Rania Hammami</div>
+          <div class="review-date">Novembre 2024 · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <span class="section-label">Galerie</span>
+    <h2 class="section-title">A Feast for the Eyes</h2>
+    <span class="gold-line center"></span>
+  </div>
+  <div class="gallery-grid container reveal">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&auto=format&fit=crop" alt="Pastry display" loading="lazy" onerror="this.src='https://picsum.photos/seed/pastry1/800/600'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=80&auto=format&fit=crop" alt="Macarons" loading="lazy" onerror="this.src='https://picsum.photos/seed/macaron/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&auto=format&fit=crop" alt="Cake" loading="lazy" onerror="this.src='https://picsum.photos/seed/cake1/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80&auto=format&fit=crop" alt="Pastry chef" loading="lazy" onerror="this.src='https://picsum.photos/seed/chef1/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=800&q=80&auto=format&fit=crop" alt="Elegant cakes" loading="lazy" onerror="this.src='https://picsum.photos/seed/elegant/800/400'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Tarts" loading="lazy" onerror="this.src='https://picsum.photos/seed/tart1/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80&auto=format&fit=crop" alt="Croissants" loading="lazy" onerror="this.src='https://picsum.photos/seed/croissant/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format&fit=crop" alt="Dessert plating" loading="lazy" onerror="this.src='https://picsum.photos/seed/dessert1/600/450'"/>
+      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NEWSLETTER
+============================================================ -->
+<section id="newsletter">
+  <div class="newsletter-inner reveal">
+    <span class="section-label" style="color:var(--brown-light)">Restez informé</span>
+    <h2 class="section-title" style="font-size:2.4rem;margin-bottom:0.8rem">Stay in the Loop</h2>
+    <p class="section-subtitle">New creations, seasonal menus, exclusive offers — delivered to your inbox with elegance.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Your email address" required/>
+      <button type="submit"><i class="fa-regular fa-paper-plane"></i> Subscribe</button>
+    </form>
+    <p class="newsletter-note">No spam, ever. Unsubscribe at any time.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:4rem">
+      <span class="section-label">Nous Trouver</span>
+      <h2 class="section-title">Visit Us or Get in Touch</h2>
+      <span class="gold-line center"></span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <h3>Contact & Location</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-val">B9 Résidence Essalem Les,<br>Tunis 2045, Tunisia</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-val"><a href="tel:+21654444777">+216 54 444 777</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <div class="contact-item-label">Website</div>
+            <div class="contact-item-val"><a href="https://madeleineetproust.com" target="_blank">madeleineetproust.com</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="contact-item-label">Opening Hours</div>
+            <div class="contact-item-val">
+              <div class="hours-grid">
+                <div class="hours-row"><span class="hours-day">Mon – Fri</span><span class="hours-time">08:00 – 22:30</span></div>
+                <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">08:00 – 23:00</span></div>
+                <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">09:00 – 22:00</span></div>
+              </div>
+              <div class="open-badge">Open Now · Closes 22:30</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/21654444777" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3192.3!2d10.296419!3d36.855268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sfr!2stn!4v1"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Pâtisserie Madeleine et Proust location">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:2rem">Send Us a Message</h3>
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Leila" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Ben Salah" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="leila@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+216 XX XXX XXX"/>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select>
+              <option value="">Select a topic...</option>
+              <option>General Inquiry</option>
+              <option>Custom Cake Order</option>
+              <option>Delivery Information</option>
+              <option>Reservation</option>
+              <option>Corporate / Event Catering</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us how we can help you..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i class="fa-regular fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Madeleine et Proust</h3>
+      <div class="tagline">Pâtisserie · Tunis</div>
+      <p>A refined pastry destination inspired by the art of French baking — crafted for those who believe that beauty belongs on the plate as much as on the palate.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/21654444777" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">Notre Histoire</a></li>
+        <li><a href="#products">Nos Produits</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Avis Clients</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Produits</h4>
+      <ul>
+        <li><a href="#products">Madeleines</a></li>
+        <li><a href="#products">Macarons</a></li>
+        <li><a href="#products">Éclairs</a></li>
+        <li><a href="#products">Croissants</a></li>
+        <li><a href="#products">Gâteaux sur commande</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+21654444777">+216 54 444 777</a></li>
+        <li><a href="https://wa.me/21654444777">WhatsApp</a></li>
+        <li><a href="https://madeleineetproust.com" target="_blank">madeleineetproust.com</a></li>
+        <li><a href="#contact">Envoyez un message</a></li>
+        <li><a href="#contact">B9 Résidence Essalem, Tunis</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Pâtisserie Madeleine et Proust. All rights reserved.</span>
+    <span>Crafted with <span style="color:var(--gold)">♥</span> in Tunis · <a href="#">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING BUTTONS
+============================================================ -->
+<div class="float-btns">
+  <a href="#contact" class="float-btn float-btn-order">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="float-label">Order Now</span>
+  </a>
+  <a href="https://wa.me/21654444777" class="float-btn float-btn-wa" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+    <span class="float-label">WhatsApp</span>
+  </a>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---- Navbar scroll ---- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ---- Hero Ken-Burns ---- */
+  document.getElementById('hero').classList.add('loaded');
+
+  /* ---- Mobile nav toggle ---- */
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  /* ---- Scroll reveal ---- */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ---- Animated counters ---- */
+  function animateCounter(el, target, decimal = false, duration = 2000) {
+    const start = performance.now();
+    const update = (time) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = decimal ? (eased * target).toFixed(1) : Math.floor(eased * target);
+      el.textContent = val;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const nums = e.target.querySelectorAll('[data-target]');
+        nums.forEach(num => {
+          const target = parseFloat(num.dataset.target);
+          const decimal = num.dataset.decimal === 'true';
+          animateCounter(num, target, decimal);
+        });
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stats-strip').forEach(el => counterObserver.observe(el));
+
+  /* ---- Float btn label on hover ---- */
+  document.querySelectorAll('.float-btn').forEach(btn => {
+    const label = btn.querySelector('.float-label');
+    if (label) { label.style.display = 'inline'; }
+  });
+
+  /* ---- Form handlers ---- */
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = '#4caf50';
+    setTimeout(() => { btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Subscribe'; btn.style.background = ''; }, 3000);
+  }
+
+  function handleContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+    btn.style.background = '#4caf50';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Send Message';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3500);
+  }
+
+  function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /* ---- Smooth active nav on scroll ---- */
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
