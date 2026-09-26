@@ -1,1890 +1,618 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pâtisserie Madeleine et Proust – Authentic French Pastries in Tunis</title>
-  <meta name="description" content="Pâtisserie Madeleine et Proust – Premium French pastry shop in Tunis. Handcrafted madeleines, macarons, mille-feuille, éclairs & custom cakes. Open until 22:30."/>
-  <meta name="keywords" content="pâtisserie tunis, french pastry tunis, madeleine proust, macarons tunis, gâteaux tunis"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    /* ============================================================
-       CSS CUSTOM PROPERTIES
-    ============================================================ */
-    :root {
-      --cream: #faf6f0;
-      --cream-dark: #f2ebe0;
-      --white: #ffffff;
-      --gold: #c9a84c;
-      --gold-light: #e2c97e;
-      --gold-dark: #a07830;
-      --brown: #6b4226;
-      --brown-light: #9b6b47;
-      --pink: #f5d5d0;
-      --pink-dark: #e8b5ae;
-      --charcoal: #2c2319;
-      --text: #3d2b1a;
-      --text-light: #7a614c;
-      --border: rgba(201,168,76,0.25);
-      --shadow: 0 8px 40px rgba(44,35,25,0.12);
-      --shadow-lg: 0 20px 60px rgba(44,35,25,0.18);
-      --radius: 2px;
-      --nav-h: 80px;
-      --transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vision Studio — Professional Websites for Modern Businesses</title>
+<meta name="description" content="Professional website design and development for businesses. Modern, responsive and conversion-focused websites built around your brand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12151A; --paper:#FBFAF6; --paper-2:#F1EEE4; --text:#22262B; --muted:#6C6A61;
+  --line:#E3DFD2; --accent:#0E7A5F; --accent-ink:#0A4E3D; --accent-soft:#E3F1EB;
+  --gold:#C89B4A; --gold-soft:#F6ECD8;
+  --radius:10px; --maxw:1180px;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+h1,h2,h3{font-weight:700;letter-spacing:-0.02em;line-height:1.12;color:var(--ink)}
+h2{font-size:clamp(28px,3.6vw,42px)}
+h3{font-size:19px}
+.eyebrow{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:10px}
+.lead{color:var(--muted);font-size:17px;max-width:560px;margin-top:14px}
+.center{text-align:center;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.2,1), background .2s ease, border-color .2s ease, box-shadow .2s ease}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--accent-ink);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(10,78,61,.45)}
+.btn-outline{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 10px 20px -14px rgba(20,20,15,.3)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-ink);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(10,78,61,.5)}
+.btn-wa{background:var(--accent);color:#fff}
+.btn-wa:hover{background:var(--accent-ink);transform:translateY(-2px)}
 
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    button { border: none; outline: none; cursor: pointer; font-family: inherit; }
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:padding .2s ease}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;transition:padding .2s ease}
+header.compact nav.wrap{padding-top:12px;padding-bottom:12px}
+.logo{font-size:20px;font-weight:800;letter-spacing:-0.01em;color:var(--ink)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--text);opacity:.85;position:relative;padding-bottom:3px}
+.nav-links a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--accent);transition:width .25s ease}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover:after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:.2s}
+.mobile-menu{display:none;flex-direction:column;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 28px 20px}
+.mobile-menu a{padding:12px 0;font-size:15px;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:flex}
 
-    /* ============================================================
-       SCROLL ANIMATIONS
-    ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+/* HERO */
+.hero{padding:88px 0 90px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;top:-220px;right:-160px;width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,122,95,.14) 0%,rgba(14,122,95,0) 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero h1,.hero .lead,.hero-actions,.trust-line{animation:fadeUp .7s cubic-bezier(.2,.8,.2,1) both}
+.hero .lead{animation-delay:.08s}
+.hero-actions{animation-delay:.16s}
+.hero .trust-line{animation-delay:.24s}
+.hero .mock{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .1s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,56px)}
+.hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.trust-line{margin-top:26px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.02em}
+.mock{position:relative}
+.browser{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 24px 60px -30px rgba(20,20,15,.35);overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.browser-bar .dot{width:9px;height:9px;border-radius:50%;background:#D9D5C9}
+.browser-body{padding:26px}
+.b-line{height:10px;border-radius:4px;background:var(--paper-2)}
+.b-title{height:18px;width:65%;border-radius:4px;background:var(--ink);opacity:.9;margin-bottom:14px}
+.b-sub{height:9px;width:85%;background:var(--line);margin-bottom:8px;border-radius:3px}
+.b-block{height:120px;border-radius:8px;background:var(--accent-soft);margin:18px 0}
+.b-btn{height:34px;width:130px;border-radius:6px;background:var(--accent);margin-top:6px}
+.float-card{position:absolute;background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-size:12.5px;font-weight:600;box-shadow:0 12px 28px -14px rgba(20,20,15,.3);display:flex;align-items:center;gap:7px}
+.float-card .dot2{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.float-card.c1{top:-18px;left:-22px;animation:bob 4.5s ease-in-out infinite}
+.float-card.c2{bottom:64px;right:-26px;animation:bob 4.5s ease-in-out infinite 1.2s}
+.float-card.c3{bottom:-16px;left:18%;animation:bob 4.5s ease-in-out infinite 2.4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion: reduce){.float-card{animation:none!important}}
 
-    /* ============================================================
-       TYPOGRAPHY UTILITIES
-    ============================================================ */
-    .serif { font-family: 'Cormorant Garamond', serif; }
-    .section-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 600;
-      color: var(--charcoal);
-      line-height: 1.15;
-    }
-    .section-subtitle {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-    .gold-line {
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      margin: 1.2rem 0 1.8rem;
-    }
-    .gold-line.center { margin-left: auto; margin-right: auto; }
+/* TRUST STRIP */
+.trust{padding:50px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.trust-label{font-size:14px;color:var(--muted);font-weight:600;white-space:nowrap}
+.trust-tags{display:flex;flex-wrap:wrap;gap:12px 28px}
+.trust-tags span{font-size:14.5px;color:var(--text);font-weight:600;opacity:.75}
 
-    /* ============================================================
-       STICKY NAVBAR
-    ============================================================ */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      padding: 0 5%;
-      transition: background var(--transition), box-shadow var(--transition);
-    }
-    #navbar.scrolled {
-      background: rgba(250,246,240,0.97);
-      box-shadow: 0 2px 24px rgba(44,35,25,0.1);
-    }
-    .nav-inner {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      transition: color var(--transition);
-      line-height: 1.2;
-    }
-    #navbar.scrolled .nav-logo { color: var(--charcoal); }
-    .nav-logo span { display: block; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 1px; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.2rem;
-    }
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.88);
-      transition: color var(--transition);
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0; right: 0;
-      height: 1px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-    .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-links a:hover { color: var(--gold-light); }
-    #navbar.scrolled .nav-links a { color: var(--text-light); }
-    #navbar.scrolled .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      padding: 0.6rem 1.5rem;
-      border: 1px solid rgba(201,168,76,0.6);
-      color: var(--gold-light) !important;
-      transition: background var(--transition), color var(--transition) !important;
-      border-radius: var(--radius);
-    }
-    .nav-cta:hover { background: var(--gold); color: var(--white) !important; }
-    .nav-cta::after { display: none !important; }
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.card{border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:#fff;transition:border-color .15s ease}
+.card:hover{border-color:var(--ink)}
+.icon{width:38px;height:38px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.icon svg{width:19px;height:19px;stroke:var(--accent-ink)}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.card .more{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:600;color:var(--accent-ink)}
 
-    /* Mobile nav toggle */
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      padding: 4px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--white);
-      transition: var(--transition);
-    }
-    #navbar.scrolled .nav-toggle span { background: var(--charcoal); }
+/* WHY */
+.why .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+.benefit{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+.benefit:last-child{border-bottom:1px solid var(--line)}
+.b-num{font-size:13px;font-weight:700;color:var(--accent-ink);width:26px;flex-shrink:0;padding-top:2px}
+.benefit h3{font-size:16.5px;margin-bottom:6px}
+.benefit p{color:var(--muted);font-size:14.5px}
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 640px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1800&q=80') center/cover no-repeat;
-      transform: scale(1.06);
-      transition: transform 8s ease;
-    }
-    #hero.loaded .hero-bg { transform: scale(1); }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(30,20,10,0.55) 0%,
-        rgba(30,20,10,0.38) 50%,
-        rgba(30,20,10,0.72) 100%
-      );
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 0 1.5rem;
-      max-width: 780px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(201,168,76,0.18);
-      border: 1px solid rgba(201,168,76,0.45);
-      color: var(--gold-light);
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      padding: 0.45rem 1.1rem;
-      border-radius: 40px;
-      margin-bottom: 1.8rem;
-      animation: fadeDown 0.8s ease 0.2s both;
-    }
-    .hero-badge i { font-size: 0.65rem; }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.9s ease 0.35s both;
-    }
-    .hero-title em { font-style: italic; color: var(--gold-light); }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 300;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.7;
-      margin-bottom: 2.8rem;
-      animation: fadeUp 0.9s ease 0.5s both;
-    }
-    .hero-buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      animation: fadeUp 0.9s ease 0.65s both;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.95rem 2.2rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: var(--radius);
-      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
-    }
-    .btn-primary:hover {
-      background: var(--gold-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(201,168,76,0.5);
-    }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.95rem 2.2rem;
-      background: transparent;
-      color: var(--white);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.45);
-      border-radius: var(--radius);
-      transition: background var(--transition), border-color var(--transition), transform var(--transition);
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.7);
-      transform: translateY(-2px);
-    }
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      animation: pulse 2s ease infinite;
-    }
-    .hero-scroll i { font-size: 1rem; }
+/* PORTFOLIO */
+.pf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
+.pf-grid .pf-item:nth-child(5){grid-column:1/-1}
+.pf-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, border-color .25s ease}
+.pf-card:hover{transform:translateY(-5px);box-shadow:0 26px 48px -24px rgba(14,122,95,.28);border-color:var(--accent)}
+.pf-thumb{height:190px;background:linear-gradient(135deg,var(--paper-2),#fff);position:relative;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}
+.pf-thumb .pf-mock{width:70%;height:60%;border:1px solid var(--line);border-radius:6px;background:#fff;padding:10px;transition:transform .3s ease}
+.pf-card:hover .pf-mock{transform:scale(1.05)}
+.pf-thumb .pf-mock .l1{height:8px;width:55%;background:var(--ink);opacity:.85;border-radius:2px;margin-bottom:8px}
+.pf-thumb .pf-mock .l2{height:5px;width:80%;background:var(--line);border-radius:2px;margin-bottom:5px}
+.pf-thumb .pf-mock .l3{height:5px;width:70%;background:var(--line);border-radius:2px}
+.pf-tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;background:var(--ink);color:#fff;padding:4px 9px;border-radius:20px}
+.pf-body{padding:22px}
+.pf-cat{font-size:12.5px;color:var(--accent-ink);font-weight:600;margin-bottom:6px}
+.pf-body p{color:var(--muted);font-size:14px;margin-top:8px}
+.pf-view{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:600}
 
-    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes pulse { 0%,100% { opacity:0.5; } 50% { opacity:1; } }
+/* PROCESS */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.proc{padding-top:20px;border-top:2px solid var(--ink)}
+.proc .num{font-size:13px;font-weight:700;color:var(--accent-ink);margin-bottom:10px}
+.proc p{color:var(--muted);font-size:14px;margin-top:8px}
 
-    /* ============================================================
-       STATS STRIP
-    ============================================================ */
-    .stats-strip {
-      background: var(--charcoal);
-      padding: 2.2rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-    .stat-item {
-      flex: 1;
-      text-align: center;
-      padding: 0 2rem;
-      border-right: 1px solid rgba(201,168,76,0.2);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-top: 0.35rem;
-    }
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;align-items:start}
+.plan{border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;background:#fff}
+.plan.hi{border-color:var(--ink);background:var(--ink);color:#fff;transform:scale(1.03);box-shadow:0 30px 60px -28px rgba(10,20,15,.5);position:relative}
+.plan.hi .plan-desc,.plan.hi li{color:#D8D6CF}
+.plan-name{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--accent)}
+.plan.hi .plan-name{color:var(--gold)}
+.plan-price{font-size:26px;font-weight:800;margin:14px 0 6px}
+.plan-desc{color:var(--muted);font-size:14px;margin-bottom:20px}
+.plan ul{margin:22px 0;display:flex;flex-direction:column;gap:11px}
+.plan li{font-size:14px;padding-left:20px;position:relative;color:var(--text)}
+.plan li:before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.plan.hi li:before{background:#7FBFA6}
+.plan .btn{width:100%;justify-content:center;margin-top:6px}
 
-    /* ============================================================
-       SECTIONS GENERIC
-    ============================================================ */
-    section { padding: 7rem 5%; }
-    .container { max-width: 1200px; margin: 0 auto; }
+/* ABOUT */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.about-tags span{font-size:13px;font-weight:600;padding:8px 14px;border:1px solid var(--line);border-radius:20px;color:var(--text)}
 
-    /* ============================================================
-       ABOUT
-    ============================================================ */
-    #about {
-      background: var(--white);
-      padding: 7rem 5%;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .about-image-wrap {
-      position: relative;
-    }
-    .about-image-main {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-    }
-    .about-image-accent {
-      position: absolute;
-      width: 55%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: var(--radius);
-      right: -2rem;
-      bottom: -2.5rem;
-      border: 6px solid var(--white);
-      box-shadow: var(--shadow);
-    }
-    .about-badge {
-      position: absolute;
-      top: 2rem; left: -1.5rem;
-      background: var(--gold);
-      color: var(--white);
-      padding: 1.1rem 1.4rem;
-      text-align: center;
-      border-radius: var(--radius);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.4);
-    }
-    .about-badge .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1;
-      display: block;
-    }
-    .about-badge .txt {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.9;
-    }
-    .about-text .section-subtitle { max-width: 100%; }
-    .about-features {
-      margin-top: 2.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-    .about-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .about-feature-icon {
-      flex-shrink: 0;
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-size: 0.9rem;
-      margin-top: 2px;
-    }
-    .about-feature h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.2rem;
-    }
-    .about-feature p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+/* FAQ */
+.faq-list{max-width:760px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 0;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq-q .plus{font-size:20px;color:var(--accent-ink);transition:transform .2s ease;flex-shrink:0}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{color:var(--muted);font-size:14.5px;padding-bottom:20px;max-width:640px}
 
-    /* ============================================================
-       PRODUCTS
-    ============================================================ */
-    #products {
-      background: var(--cream);
-      padding: 7rem 5%;
-    }
-    .products-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(44,35,25,0.07);
-      transition: transform var(--transition), box-shadow var(--transition);
-      cursor: pointer;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-    }
-    .product-img-wrap {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
-    .product-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
-    .product-tag {
-      position: absolute;
-      top: 1rem; left: 1rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: 40px;
-    }
-    .product-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(44,35,25,0.7) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity var(--transition);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-    }
-    .product-card:hover .product-overlay { opacity: 1; }
-    .product-order-btn {
-      width: 100%;
-      padding: 0.65rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: var(--radius);
-      transition: background var(--transition);
-    }
-    .product-order-btn:hover { background: var(--gold-dark); }
-    .product-info {
-      padding: 1.4rem;
-    }
-    .product-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.35rem;
-    }
-    .product-desc {
-      font-size: 0.84rem;
-      color: var(--text-light);
-      line-height: 1.55;
-      margin-bottom: 1rem;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--gold-dark);
-    }
-    .product-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.05em; }
+/* CONTACT */
+.contact{background:var(--paper-2)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:60px}
+.contact-info{padding-top:6px}
+.contact-info h2{margin-bottom:12px}
+.ch-list{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+.ch-list a{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:8px}
+.ch-list a:hover{border-color:var(--ink)}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:var(--text)}
+input,select,textarea{border:1px solid var(--line);border-radius:7px;padding:11px 13px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+textarea{resize:vertical;min-height:90px}
+form .btn{width:100%;justify-content:center;margin-top:6px}
+.form-note{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success.show{display:block}
+.form-success h3{margin-bottom:8px}
+.form-success p{color:var(--muted);font-size:14px}
 
-    /* ============================================================
-       SERVICES
-    ============================================================ */
-    #services {
-      background: linear-gradient(135deg, var(--charcoal) 0%, #3d2b1a 100%);
-      padding: 7rem 5%;
-      position: relative;
-      overflow: hidden;
-    }
-    #services::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .services-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .services-header .section-title { color: var(--white); }
-    .services-header .section-subtitle { color: rgba(255,255,255,0.55); margin: 0 auto; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,168,76,0.18);
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: background var(--transition), transform var(--transition), border-color var(--transition);
-    }
-    .service-card:hover {
-      background: rgba(201,168,76,0.1);
-      border-color: rgba(201,168,76,0.45);
-      transform: translateY(-6px);
-    }
-    .service-icon {
-      width: 70px; height: 70px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
-      border: 1px solid rgba(201,168,76,0.3);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 1.5rem;
-      color: var(--gold-light);
-      transition: background var(--transition), transform var(--transition);
-    }
-    .service-card:hover .service-icon {
-      background: linear-gradient(135deg, rgba(201,168,76,0.4), rgba(201,168,76,0.2));
-      transform: scale(1.1);
-    }
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-    .service-desc {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.65;
-    }
+/* FOOTER */
+footer{background:var(--ink);color:#D8D6CF;padding:70px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+.foot-logo{font-size:19px;font-weight:800;color:#fff;margin-bottom:10px}
+footer .tag{font-size:14px;color:#9C9A92;max-width:240px}
+footer h4{font-size:13px;color:#fff;margin-bottom:16px;font-weight:600}
+footer ul li{margin-bottom:10px}
+footer ul a{font-size:14px;color:#B4B2AA}
+footer ul a:hover{color:#fff}
+.foot-bottom{margin-top:60px;padding-top:24px;border-top:1px solid #2A2E31;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#8C8A82}
+.foot-bottom a{color:#8C8A82}
+.foot-bottom a:hover{color:#fff}
 
-    /* ============================================================
-       REVIEWS
-    ============================================================ */
-    #reviews {
-      background: var(--white);
-      padding: 7rem 5%;
-    }
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .rating-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 1rem 2rem;
-      margin-bottom: 2rem;
-    }
-    .rating-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--gold-dark);
-      line-height: 1;
-    }
-    .rating-info { text-align: left; }
-    .rating-stars { color: var(--gold); font-size: 1rem; letter-spacing: 0.05em; }
-    .rating-count { font-size: 0.8rem; color: var(--text-light); margin-top: 0.2rem; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .review-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      position: relative;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .review-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-    .review-card::before {
-      content: '\201C';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      color: var(--gold-light);
-      position: absolute;
-      top: 0.2rem; left: 1.2rem;
-      line-height: 1;
-      opacity: 0.5;
-    }
-    .review-stars { color: var(--gold); margin-bottom: 1rem; font-size: 0.85rem; }
-    .review-text {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .review-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-    .review-name {
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--charcoal);
-    }
-    .review-date { font-size: 0.75rem; color: var(--text-light); }
+/* WA floating */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:40;padding:13px 18px;border-radius:30px;box-shadow:0 14px 30px -12px rgba(14,122,95,.5);font-size:14px;padding-bottom:calc(13px + env(safe-area-inset-bottom,0px));animation:pulseWa 2.6s ease-in-out infinite}
+@keyframes pulseWa{0%,100%{box-shadow:0 14px 30px -12px rgba(14,122,95,.5)}50%{box-shadow:0 14px 34px -8px rgba(14,122,95,.75)}}
+@media (prefers-reduced-motion: reduce){.wa-float{animation:none}}
 
-    /* ============================================================
-       GALLERY
-    ============================================================ */
-    #gallery {
-      background: var(--cream-dark);
-      padding: 7rem 5%;
-    }
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .gallery-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 200px);
-      gap: 0.75rem;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      cursor: pointer;
-    }
-    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .gallery-item:nth-child(5) { grid-column: span 2; }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.08); }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(44,35,25,0);
-      display: flex; align-items: center; justify-content: center;
-      transition: background var(--transition);
-    }
-    .gallery-item:hover .gallery-overlay {
-      background: rgba(44,35,25,0.4);
-    }
-    .gallery-overlay i {
-      color: var(--white);
-      font-size: 1.4rem;
-      opacity: 0;
-      transform: scale(0.7);
-      transition: opacity var(--transition), transform var(--transition);
-    }
-    .gallery-item:hover .gallery-overlay i {
-      opacity: 1;
-      transform: scale(1);
-    }
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:60;width:0%;transition:width .1s linear}
 
-    /* ============================================================
-       NEWSLETTER
-    ============================================================ */
-    #newsletter {
-      background: linear-gradient(135deg, var(--pink) 0%, #f7e8d8 100%);
-      padding: 5.5rem 5%;
-      text-align: center;
-    }
-    .newsletter-inner {
-      max-width: 580px;
-      margin: 0 auto;
-    }
-    .newsletter-inner .section-title { color: var(--brown); }
-    .newsletter-inner .section-subtitle { margin: 0 auto; color: var(--brown-light); }
-    .newsletter-form {
-      display: flex;
-      gap: 0;
-      margin-top: 2rem;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(107,66,38,0.2);
-    }
-    .newsletter-form input {
-      flex: 1;
-      padding: 1rem 1.4rem;
-      border: none;
-      outline: none;
-      background: var(--white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .newsletter-form input::placeholder { color: var(--text-light); }
-    .newsletter-form button {
-      padding: 1rem 1.8rem;
-      background: var(--gold);
-      color: var(--white);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background var(--transition);
-      white-space: nowrap;
-    }
-    .newsletter-form button:hover { background: var(--gold-dark); }
-    .newsletter-note { font-size: 0.75rem; color: var(--brown-light); margin-top: 0.8rem; }
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(20,20,15,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:14px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:36px}
+.modal-close{float:right;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.modal h3{font-size:24px;margin-bottom:4px}
+.modal .m-meta{font-size:13px;color:var(--accent-ink);font-weight:600;margin-bottom:20px}
+.modal h4{font-size:13px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:20px 0 6px}
+.modal p{font-size:14.5px;color:var(--text)}
+.modal ul{margin-top:6px}
+.modal ul li{font-size:14px;padding-left:16px;position:relative;margin-bottom:5px}
+.modal ul li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
-    /* ============================================================
-       CONTACT
-    ============================================================ */
-    #contact {
-      background: var(--white);
-      padding: 7rem 5%;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .contact-info h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      color: var(--charcoal);
-      margin-bottom: 2rem;
-    }
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-icon {
-      width: 42px; height: 42px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-size: 0.95rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .contact-item-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.25rem;
-    }
-    .contact-item-val {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .contact-item-val a { color: var(--text); transition: color 0.3s; }
-    .contact-item-val a:hover { color: var(--gold); }
-    .hours-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem 1.5rem;
-      margin-top: 0.5rem;
-    }
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-    }
-    .hours-day { color: var(--text-light); }
-    .hours-time { color: var(--charcoal); font-weight: 500; }
-    .open-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: #e8f5e9;
-      color: #2e7d32;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border-radius: 40px;
-      margin-top: 0.8rem;
-    }
-    .open-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #4caf50;
-      animation: blink 1.5s ease infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .social-links {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 2rem;
-    }
-    .social-link {
-      width: 40px; height: 40px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-light);
-      font-size: 0.9rem;
-      transition: background var(--transition), color var(--transition), border-color var(--transition);
-    }
-    .social-link:hover {
-      background: var(--gold);
-      color: var(--white);
-      border-color: var(--gold);
-    }
-    .map-wrap {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      margin-top: 1.5rem;
-      height: 220px;
-    }
-    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-    /* Contact form */
-    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-    .form-group label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
-    .form-group input, .form-group textarea, .form-group select {
-      padding: 0.85rem 1.1rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--cream);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.9rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-submit {
-      padding: 1rem;
-      background: var(--charcoal);
-      color: var(--gold-light);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border-radius: var(--radius);
-      transition: background var(--transition), color var(--transition);
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-    }
-    .form-submit:hover { background: var(--gold); color: var(--white); }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    footer {
-      background: var(--charcoal);
-      padding: 4rem 5% 2rem;
-      color: rgba(255,255,255,0.55);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.8fr 1fr 1fr 1fr;
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem;
-    }
-    .footer-brand h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-    .footer-brand .tagline {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
-    .footer-social {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-    .footer-social a {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-      transition: background var(--transition), color var(--transition);
-    }
-    .footer-social a:hover { background: var(--gold); color: var(--white); }
-    .footer-col h4 {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
-    .footer-col ul a {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.3s;
-    }
-    .footer-col ul a:hover { color: var(--gold-light); }
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.78rem;
-    }
-    .footer-bottom a { color: var(--gold); }
-
-    /* ============================================================
-       FLOATING BUTTONS
-    ============================================================ */
-    .float-btns {
-      position: fixed;
-      bottom: 2rem;
-      right: 1.5rem;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.75rem;
-    }
-    .float-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.7rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      transition: transform var(--transition), box-shadow var(--transition);
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .float-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
-    }
-    .float-btn-order {
-      background: var(--gold);
-      color: var(--white);
-    }
-    .float-btn-wa {
-      background: #25d366;
-      color: var(--white);
-    }
-    .float-btn i { font-size: 1rem; }
-    .float-label { display: none; }
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media (max-width: 1100px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 900px) {
-      :root { --nav-h: 70px; }
-      .nav-links { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); padding: 2rem 5%; gap: 1.5rem; box-shadow: var(--shadow); }
-      .nav-links.open { display: flex; }
-      .nav-links a { color: var(--text) !important; font-size: 0.9rem; }
-      .nav-toggle { display: flex; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-image-wrap { max-width: 500px; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-      .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      section { padding: 5rem 5%; }
-      .stats-strip { flex-direction: column; gap: 2rem; }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-bottom: 2rem; width: 100%; }
-      .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
-      .form-row { grid-template-columns: 1fr; }
-      .hero-title { font-size: 2.8rem; }
-      .float-btn-order .float-label { display: none; }
-      .newsletter-form { flex-direction: column; border-radius: var(--radius); }
-      .newsletter-form input { border-radius: var(--radius); }
-      .newsletter-form button { border-radius: var(--radius); }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:1fr}
+  .plan.hi{transform:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .mock{order:-1;max-width:420px;margin:0 auto 20px}
+  .why .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .nav-links,.nav-cta .btn-outline{display:none}
+  .hamburger{display:block}
+  section{padding:70px 0}
+}
+@media (max-width:640px){
+  .svc-grid,.pf-grid,.proc-grid{grid-template-columns:1fr}
+  .pf-grid .pf-item:nth-child(5){grid-column:auto}
+  .frow{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .trust .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- ============================================================
-     NAVBAR
-============================================================ -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      Madeleine et Proust
-      <span>Pâtisserie · Tunis</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">Notre Histoire</a></li>
-      <li><a href="#products">Produits</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#reviews">Avis</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#contact" class="nav-cta">Commander</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#home" class="logo">Vision<span>Studio</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline">Get a Free Consultation</a>
+      <button class="hamburger" id="hamBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
-</nav>
+</header>
 
-<!-- ============================================================
-     HERO
-============================================================ -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <i class="fa-solid fa-star"></i>
-      Ouvert maintenant · Ferme à 22h30
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1>Your business deserves a better website.</h1>
+      <p class="lead">Modern websites designed to make your business look professional, earn trust and turn visitors into customers.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+        <a href="#work" class="btn btn-outline">View Our Work</a>
+      </div>
+      <p class="trust-line">Web Design • Development • Responsive • SEO-Ready</p>
     </div>
-    <h1 class="hero-title">
-      Authentic French Pastries<br>in the <em>Heart of Tunis</em>
-    </h1>
-    <p class="hero-sub">
-      Handcrafted with passion. Inspired by Parisian tradition.<br>
-      Each creation tells a story — yours begins here.
-    </p>
-    <div class="hero-buttons">
-      <a href="#products" class="btn-primary">
-        <i class="fa-regular fa-book-open"></i> View Menu
-      </a>
-      <a href="#contact" class="btn-outline">
-        <i class="fa-regular fa-bag-shopping"></i> Order Now
-      </a>
+    <div class="mock">
+      <div class="float-card c1"><span class="dot2"></span>Mobile Responsive</div>
+      <div class="float-card c2"><span class="dot2"></span>Fast Loading</div>
+      <div class="float-card c3"><span class="dot2"></span>Modern Design</div>
+      <div class="browser">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="browser-body">
+          <div class="b-title"></div>
+          <div class="b-sub"></div>
+          <div class="b-sub" style="width:60%"></div>
+          <div class="b-block"></div>
+          <div class="b-btn"></div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <i class="fa-regular fa-chevron-down"></i>
-    <span>Scroll</span>
   </div>
 </section>
 
-<!-- ============================================================
-     STATS STRIP
-============================================================ -->
-<div class="stats-strip">
-  <div class="stat-item reveal">
-    <div class="stat-num" data-target="452">0</div>
-    <div class="stat-label">Happy Customers</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.15s">
-    <div class="stat-num"><span data-target="4.2" data-decimal="true">0</span><span style="font-size:1.4rem">/5</span></div>
-    <div class="stat-label">Average Rating</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.3s">
-    <div class="stat-num" data-target="12">0</div>
-    <div class="stat-label">Years of Excellence</div>
-  </div>
-  <div class="stat-item reveal" style="transition-delay:0.45s">
-    <div class="stat-num" data-target="47">0</div>
-    <div class="stat-label">Signature Recipes</div>
+<div class="trust">
+  <div class="wrap">
+    <span class="trust-label">Designed for modern businesses</span>
+    <div class="trust-tags">
+      <span>Restaurants</span><span>Hotels</span><span>Fashion</span><span>Beauty</span><span>Real Estate</span><span>Local Businesses</span>
+    </div>
   </div>
 </div>
 
-<!-- ============================================================
-     ABOUT
-============================================================ -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-image-wrap reveal-left">
-      <img class="about-image-main" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80" alt="Artisan pastry chef at work" loading="lazy"/>
-      <img class="about-image-accent" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=500&q=80" alt="Freshly baked croissants" loading="lazy"/>
-      <div class="about-badge">
-        <span class="num">★ 4.2</span>
-        <span class="txt">452 Reviews</span>
-      </div>
-    </div>
-    <div class="about-text reveal-right">
-      <span class="section-label">Notre Histoire</span>
-      <h2 class="section-title">A Taste of Paris,<br>Born in Tunis</h2>
-      <span class="gold-line"></span>
-      <p class="section-subtitle" style="margin-bottom:1rem">
-        Pâtisserie Madeleine et Proust is more than a bakery — it is a sensory journey. Named after Proust's famous madeleine, the little cake that unlocked a universe of memory, we believe every bite should transport you.
-      </p>
-      <p class="section-subtitle">
-        Founded in the heart of Tunis, our artisans draw from classic French baking traditions to craft desserts of extraordinary refinement — viennoiseries, entremets, custom celebration cakes, and gourmet treats — using only the finest ingredients.
-      </p>
-      <div class="about-features">
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-          <div>
-            <h4>Premium Ingredients</h4>
-            <p>Imported French butter, Valrhona chocolate & fresh local produce.</p>
-          </div>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fa-solid fa-hands"></i></div>
-          <div>
-            <h4>Handcrafted Daily</h4>
-            <p>Every piece baked fresh each morning with artisan precision.</p>
-          </div>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon"><i class="fa-solid fa-certificate"></i></div>
-          <div>
-            <h4>Culinary Excellence</h4>
-            <p>Recipes inspired by the finest pâtisseries of Paris & Lyon.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PRODUCTS
-============================================================ -->
-<section id="products">
-  <div class="products-header reveal">
-    <span class="section-label">Nos Créations</span>
-    <h2 class="section-title">Signature Pastries</h2>
-    <span class="gold-line center"></span>
-    <p class="section-subtitle" style="margin:0 auto">Each creation is a labor of love — a story told in butter, cream, and finest chocolate.</p>
-  </div>
-  <div class="products-grid container">
-
-    <div class="product-card reveal" style="transition-delay:0.05s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=600&q=80" alt="Madeleines" loading="lazy"/>
-        <span class="product-tag">Signature</span>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Madeleines</h3>
-        <p class="product-desc">Our namesake — light, buttery, shell-shaped cakes infused with lemon zest and vanilla.</p>
-        <div class="product-footer">
-          <span class="product-price">8 DT / boîte</span>
-          <span class="product-stars">★★★★★</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.1s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=80" alt="Macarons" loading="lazy"/>
-        <span class="product-tag">Best Seller</span>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Macarons</h3>
-        <p class="product-desc">Crisp meringue shells with silky ganache — rose, pistachio, salted caramel & more.</p>
-        <div class="product-footer">
-          <span class="product-price">3.5 DT / pièce</span>
-          <span class="product-stars">★★★★★</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.15s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=600&q=80" alt="Mille-feuille" loading="lazy"/>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Mille-feuille</h3>
-        <p class="product-desc">Layers of crispy puff pastry and velvety diplomat cream — a timeless French classic.</p>
-        <div class="product-footer">
-          <span class="product-price">12 DT</span>
-          <span class="product-stars">★★★★☆</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.2s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&q=80" alt="Éclairs" loading="lazy"/>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Éclairs</h3>
-        <p class="product-desc">Choux pastry filled with chocolate, vanilla or coffee cream and glazed to perfection.</p>
-        <div class="product-footer">
-          <span class="product-price">5.5 DT</span>
-          <span class="product-stars">★★★★★</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.25s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Croissants" loading="lazy"/>
-        <span class="product-tag">Matinal</span>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Croissants</h3>
-        <p class="product-desc">Buttery, flaky, golden. Laminated 72 hours for 729 perfect layers of crunch.</p>
-        <div class="product-footer">
-          <span class="product-price">3 DT</span>
-          <span class="product-stars">★★★★★</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.3s">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Tartes aux fruits" loading="lazy"/>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Tartes aux Fruits</h3>
-        <p class="product-desc">Seasonal fresh fruits atop silky pastry cream in a buttery shortcrust shell.</p>
-        <div class="product-footer">
-          <span class="product-price">22 DT</span>
-          <span class="product-stars">★★★★☆</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card reveal" style="transition-delay:0.35s; grid-column: span 1;">
-      <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&q=80" alt="Custom Celebration Cakes" loading="lazy"/>
-        <span class="product-tag">Sur commande</span>
-        <div class="product-overlay">
-          <button class="product-order-btn" onclick="scrollToContact()">Commander</button>
-        </div>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">Gâteaux de Fête</h3>
-        <p class="product-desc">Custom celebration cakes designed and crafted for your most special moments.</p>
-        <div class="product-footer">
-          <span class="product-price">Sur devis</span>
-          <span class="product-stars">★★★★★</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     SERVICES
-============================================================ -->
 <section id="services">
-  <div class="services-header reveal">
-    <span class="section-label">Nos Services</span>
-    <h2 class="section-title">How We Serve You</h2>
-    <span class="gold-line center"></span>
-    <p class="section-subtitle">Every visit, every order — an experience crafted with the same care as our pastries.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card reveal" style="transition-delay:0.05s">
-      <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
-      <h3 class="service-name">Dine-In Experience</h3>
-      <p class="service-desc">Settle into our elegant salon and savour your pastry with a coffee in a warm Parisian atmosphere.</p>
-    </div>
-    <div class="service-card reveal" style="transition-delay:0.15s">
-      <div class="service-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-      <h3 class="service-name">Takeaway Orders</h3>
-      <p class="service-desc">Everything beautifully packaged in our signature gift boxes — perfect for treats on the go.</p>
-    </div>
-    <div class="service-card reveal" style="transition-delay:0.25s">
-      <div class="service-icon"><i class="fa-solid fa-motorcycle"></i></div>
-      <h3 class="service-name">Fast Delivery</h3>
-      <p class="service-desc">Fresh pastries delivered to your door in Tunis. Order by phone or WhatsApp for same-day delivery.</p>
-    </div>
-    <div class="service-card reveal" style="transition-delay:0.35s">
-      <div class="service-icon"><i class="fa-solid fa-cake-candles"></i></div>
-      <h3 class="service-name">Custom Cake Orders</h3>
-      <p class="service-desc">Bespoke celebration cakes crafted to your vision — weddings, birthdays, corporate events and more.</p>
+  <div class="wrap">
+    <h2>Everything you need to build your online presence</h2>
+    <p class="lead">From a simple business website to a complete online experience, we create solutions tailored to your goals.</p>
+    <div class="svc-grid">
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div><h3>Business Websites</h3><p>Professional websites designed to present your business clearly and make a strong first impression.</p><a class="more" href="#contact">Learn more →</a></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div><h3>Landing Pages</h3><p>High-converting landing pages designed for campaigns, products, services and specific offers.</p><a class="more" href="#contact">Learn more →</a></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg></div><h3>E-Commerce</h3><p>Modern online stores designed to showcase products and make online shopping simple.</p><a class="more" href="#contact">Learn more →</a></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 18v-5h5"/></svg></div><h3>Website Redesign</h3><p>Transform an outdated website into a modern, responsive and professional digital experience.</p><a class="more" href="#contact">Learn more →</a></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>Mobile Optimization</h3><p>Make sure your website looks and works beautifully across phones, tablets and desktops.</p><a class="more" href="#contact">Learn more →</a></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1h.1a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg></div><h3>Maintenance &amp; Support</h3><p>Keep your website updated, secure and running smoothly after launch.</p><a class="more" href="#contact">Learn more →</a></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     REVIEWS
-============================================================ -->
-<section id="reviews">
-  <div class="reviews-header reveal">
-    <span class="section-label">Témoignages</span>
-    <h2 class="section-title">What Our Guests Say</h2>
-    <span class="gold-line center"></span>
-    <div class="rating-badge">
-      <div class="rating-num">4.2</div>
-      <div class="rating-info">
-        <div class="rating-stars">★★★★☆</div>
-        <div class="rating-count">Based on 452 verified reviews</div>
-      </div>
-    </div>
-  </div>
-  <div class="reviews-grid container">
-
-    <div class="review-card reveal" style="transition-delay:0.05s">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The madeleines are extraordinary — soft, fragrant, and utterly Proustian. This place has become our Sunday ritual. The service is impeccable and the atmosphere is divine."</p>
-      <div class="review-author">
-        <div class="review-avatar">L</div>
-        <div>
-          <div class="review-name">Leila Ben Salah</div>
-          <div class="review-date">Mars 2025 · Google Review</div>
+<section class="why" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="mock" style="position:static">
+      <div class="browser">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="browser-body">
+          <div class="b-title" style="width:45%"></div>
+          <div class="b-block" style="height:90px"></div>
+          <div class="b-sub"></div><div class="b-sub" style="width:70%"></div>
+          <div class="b-btn"></div>
         </div>
       </div>
     </div>
-
-    <div class="review-card reveal" style="transition-delay:0.15s">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Ordered a custom birthday cake and it was absolutely breathtaking. The flavors were perfect — not too sweet, with incredible depth. Highly recommend for any special occasion."</p>
-      <div class="review-author">
-        <div class="review-avatar">A</div>
-        <div>
-          <div class="review-name">Ahmed Trabelsi</div>
-          <div class="review-date">Janvier 2025 · Google Review</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-card reveal" style="transition-delay:0.25s">
-      <div class="review-stars">★★★★☆</div>
-      <p class="review-text">"Best croissants in Tunis, full stop. Properly laminated, golden outside, airy inside. The macarons rival anything I've had in Paris. A true gem in Les Berges du Lac."</p>
-      <div class="review-author">
-        <div class="review-avatar">S</div>
-        <div>
-          <div class="review-name">Sophie Marchand</div>
-          <div class="review-date">Février 2025 · Google Review</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-card reveal" style="transition-delay:0.35s">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The eclairs are a revelation — perfectly choux, rich ganache, gorgeous glaze. The delivery arrived beautifully packaged and on time. Will absolutely order again!"</p>
-      <div class="review-author">
-        <div class="review-avatar">M</div>
-        <div>
-          <div class="review-name">Mariam Oueslati</div>
-          <div class="review-date">Avril 2025 · Google Review</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-card reveal" style="transition-delay:0.45s">
-      <div class="review-stars">★★★★☆</div>
-      <p class="review-text">"A beautiful space with genuinely excellent pastries. The mille-feuille was textbook perfect. The staff were warm and knowledgeable. A must-visit pâtisserie in the capital."</p>
-      <div class="review-author">
-        <div class="review-avatar">Y</div>
-        <div>
-          <div class="review-name">Youssef Khelifi</div>
-          <div class="review-date">Décembre 2024 · Google Review</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-card reveal" style="transition-delay:0.55s">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"We ordered a wedding cake and the team exceeded every expectation. The attention to detail was extraordinary — both visually and in flavor. Truly a pâtisserie of Parisian caliber."</p>
-      <div class="review-author">
-        <div class="review-avatar">R</div>
-        <div>
-          <div class="review-name">Rania Hammami</div>
-          <div class="review-date">Novembre 2024 · Google Review</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     GALLERY
-============================================================ -->
-<section id="gallery">
-  <div class="gallery-header reveal">
-    <span class="section-label">Galerie</span>
-    <h2 class="section-title">A Feast for the Eyes</h2>
-    <span class="gold-line center"></span>
-  </div>
-  <div class="gallery-grid container reveal">
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&auto=format&fit=crop" alt="Pastry display" loading="lazy" onerror="this.src='https://picsum.photos/seed/pastry1/800/600'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=80&auto=format&fit=crop" alt="Macarons" loading="lazy" onerror="this.src='https://picsum.photos/seed/macaron/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&auto=format&fit=crop" alt="Cake" loading="lazy" onerror="this.src='https://picsum.photos/seed/cake1/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80&auto=format&fit=crop" alt="Pastry chef" loading="lazy" onerror="this.src='https://picsum.photos/seed/chef1/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=800&q=80&auto=format&fit=crop" alt="Elegant cakes" loading="lazy" onerror="this.src='https://picsum.photos/seed/elegant/800/400'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Tarts" loading="lazy" onerror="this.src='https://picsum.photos/seed/tart1/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80&auto=format&fit=crop" alt="Croissants" loading="lazy" onerror="this.src='https://picsum.photos/seed/croissant/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format&fit=crop" alt="Dessert plating" loading="lazy" onerror="this.src='https://picsum.photos/seed/dessert1/600/450'"/>
-      <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+    <div>
+      <h2>More than just a website</h2>
+      <div class="benefit reveal"><span class="b-num">01</span><div><h3>Professional first impression</h3><p>Your website is often the first interaction customers have with your business. Make it count.</p></div></div>
+      <div class="benefit reveal"><span class="b-num">02</span><div><h3>Built for mobile</h3><p>Most customers browse from their phones. Your website should look perfect on every screen.</p></div></div>
+      <div class="benefit reveal"><span class="b-num">03</span><div><h3>Simple customer journey</h3><p>Clear navigation and strong calls-to-action help visitors quickly find what they need.</p></div></div>
+      <div class="benefit reveal"><span class="b-num">04</span><div><h3>Built around your business</h3><p>Every website is customized around your brand, audience and objectives.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     NEWSLETTER
-============================================================ -->
-<section id="newsletter">
-  <div class="newsletter-inner reveal">
-    <span class="section-label" style="color:var(--brown-light)">Restez informé</span>
-    <h2 class="section-title" style="font-size:2.4rem;margin-bottom:0.8rem">Stay in the Loop</h2>
-    <p class="section-subtitle">New creations, seasonal menus, exclusive offers — delivered to your inbox with elegance.</p>
-    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-      <input type="email" placeholder="Your email address" required/>
-      <button type="submit"><i class="fa-regular fa-paper-plane"></i> Subscribe</button>
-    </form>
-    <p class="newsletter-note">No spam, ever. Unsubscribe at any time.</p>
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="lead">A selection of websites created for different industries and business goals.</p>
+    <div class="pf-grid" id="pfGrid">
+      <div class="pf-item pf-card reveal" data-p="0"><div class="pf-thumb"><span class="pf-tag">Concept Project</span><div class="pf-mock"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div></div><div class="pf-body"><span class="pf-cat">Bakery / Food</span><h3>Pâtisserie Madeleine &amp; Proust</h3><p>A warm, editorial-style site built to showcase seasonal pastries and drive in-store visits.</p><span class="pf-view">View project →</span></div></div>
+      <div class="pf-item pf-card reveal" data-p="1"><div class="pf-thumb"><span class="pf-tag">Concept Project</span><div class="pf-mock"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div></div><div class="pf-body"><span class="pf-cat">Fashion / Streetwear</span><h3>Final Choice</h3><p>A bold, image-led layout designed to highlight collections and support online drops.</p><span class="pf-view">View project →</span></div></div>
+      <div class="pf-item pf-card reveal" data-p="2"><div class="pf-thumb"><span class="pf-tag">Concept Project</span><div class="pf-mock"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div></div><div class="pf-body"><span class="pf-cat">Café / Restaurant / Lounge</span><h3>Dar Lassaut</h3><p>An atmospheric site pairing menu highlights with reservation and location details.</p><span class="pf-view">View project →</span></div></div>
+      <div class="pf-item pf-card reveal" data-p="3"><div class="pf-thumb"><span class="pf-tag">Concept Project</span><div class="pf-mock"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div></div><div class="pf-body"><span class="pf-cat">Hospitality</span><h3>Hotel Experience</h3><p>A calm, image-forward site built around rooms, amenities and direct booking enquiries.</p><span class="pf-view">View project →</span></div></div>
+      <div class="pf-item pf-card reveal" data-p="4"><div class="pf-thumb"><span class="pf-tag">Concept Project</span><div class="pf-mock"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div></div><div class="pf-body"><span class="pf-cat">Business Website</span><h3>Local Business Concept</h3><p>A clear, trustworthy one-page template built for local service businesses.</p><span class="pf-view">View project →</span></div></div>
+    </div>
   </div>
 </section>
 
-<!-- ============================================================
-     CONTACT
-============================================================ -->
-<section id="contact">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="reveal" style="text-align:center;margin-bottom:4rem">
-      <span class="section-label">Nous Trouver</span>
-      <h2 class="section-title">Visit Us or Get in Touch</h2>
-      <span class="gold-line center"></span>
+<section id="process" style="background:var(--paper-2)">
+  <div class="wrap">
+    <h2>From idea to launch</h2>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="num">01 · Discover</div><p>We learn about your business, your customers and what you want your website to achieve.</p></div>
+      <div class="proc reveal"><div class="num">02 · Design</div><p>We create a visual direction and structure designed around your brand.</p></div>
+      <div class="proc reveal"><div class="num">03 · Build</div><p>We develop the website and make sure it works smoothly across devices.</p></div>
+      <div class="proc reveal"><div class="num">04 · Launch</div><p>After testing and final adjustments, we publish your website and help you get started.</p></div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info reveal-left">
-        <h3>Contact & Location</h3>
+  </div>
+</section>
 
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-          <div>
-            <div class="contact-item-label">Address</div>
-            <div class="contact-item-val">B9 Résidence Essalem Les,<br>Tunis 2045, Tunisia</div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-          <div>
-            <div class="contact-item-label">Phone</div>
-            <div class="contact-item-val"><a href="tel:+21654444777">+216 54 444 777</a></div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
-          <div>
-            <div class="contact-item-label">Website</div>
-            <div class="contact-item-val"><a href="https://madeleineetproust.com" target="_blank">madeleineetproust.com</a></div>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
-          <div>
-            <div class="contact-item-label">Opening Hours</div>
-            <div class="contact-item-val">
-              <div class="hours-grid">
-                <div class="hours-row"><span class="hours-day">Mon – Fri</span><span class="hours-time">08:00 – 22:30</span></div>
-                <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">08:00 – 23:00</span></div>
-                <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">09:00 – 22:00</span></div>
-              </div>
-              <div class="open-badge">Open Now · Closes 22:30</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/21654444777" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3192.3!2d10.296419!3d36.855268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sfr!2stn!4v1"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Pâtisserie Madeleine et Proust location">
-          </iframe>
-        </div>
+<section id="pricing">
+  <div class="wrap">
+    <h2>Choose the right solution for your business</h2>
+    <div class="price-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">Custom Quote</div>
+        <p class="plan-desc">For small businesses that need a professional online presence.</p>
+        <ul>
+          <li>One-page website</li><li>Responsive design</li><li>WhatsApp integration</li>
+          <li>Contact information</li><li>Google Maps</li><li>Basic SEO structure</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Request a Quote</a>
       </div>
-
-      <div class="reveal-right">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:2rem">Send Us a Message</h3>
-        <form class="contact-form" onsubmit="handleContact(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" placeholder="Leila" required/>
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" placeholder="Ben Salah" required/>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="leila@example.com" required/>
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+216 XX XXX XXX"/>
-          </div>
-          <div class="form-group">
-            <label>Subject</label>
-            <select>
-              <option value="">Select a topic...</option>
-              <option>General Inquiry</option>
-              <option>Custom Cake Order</option>
-              <option>Delivery Information</option>
-              <option>Reservation</option>
-              <option>Corporate / Event Catering</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea placeholder="Tell us how we can help you..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">
-            <i class="fa-regular fa-paper-plane"></i> Send Message
-          </button>
-        </form>
+      <div class="plan hi reveal">
+        <div class="plan-name">Business</div>
+        <div class="plan-price">Custom Quote</div>
+        <p class="plan-desc">For businesses that need a complete professional website.</p>
+        <ul>
+          <li>Multi-page website</li><li>Custom design</li><li>Contact forms</li>
+          <li>WhatsApp integration</li><li>Google Maps</li><li>Social media integration</li>
+          <li>Basic SEO</li><li>Deployment</li>
+        </ul>
+        <a href="#contact" class="btn btn-accent">Request a Quote</a>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">Custom Quote</div>
+        <p class="plan-desc">For businesses requiring advanced functionality.</p>
+        <ul>
+          <li>Custom website</li><li>Advanced sections</li><li>Online catalogue or booking</li>
+          <li>Advanced integrations</li><li>Performance optimization</li><li>Ongoing support options</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Let's Talk</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-============================================================ -->
+<section class="about" id="about" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div>
+      <h2>Building better websites for modern businesses</h2>
+      <p class="lead">We are a modern web design and development studio focused on helping businesses create a stronger online presence. We combine thoughtful design, modern development tools and business-focused thinking to create websites that are professional, responsive and easy to use.</p>
+      <div class="about-tags">
+        <span>Web Design</span><span>Development</span><span>Responsive Design</span><span>Business Strategy</span><span>Ongoing Support</span>
+      </div>
+    </div>
+    <div class="mock" style="position:static">
+      <div class="browser">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="browser-body"><div class="b-title" style="width:55%"></div><div class="b-sub"></div><div class="b-block" style="height:100px"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="center" style="max-width:600px">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">How long does it take to build a website?<span class="plus">+</span></button><div class="faq-a"><p>Depending on the size and functionality, most projects can be completed within an agreed timeframe after the requirements and content are confirmed.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do you build websites for small businesses?<span class="plus">+</span></button><div class="faq-a"><p>Yes. We work with businesses of different sizes and tailor each project to the business's needs.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Will my website work on mobile?<span class="plus">+</span></button><div class="faq-a"><p>Yes. Every website is designed to be responsive across phones, tablets and desktop devices.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can you redesign my existing website?<span class="plus">+</span></button><div class="faq-a"><p>Yes. We can modernize the design, improve usability and optimize the experience across devices.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can I update my website later?<span class="plus">+</span></button><div class="faq-a"><p>Yes. Depending on the technology used, we can provide an appropriate editing or maintenance solution.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do you provide hosting and domain setup?<span class="plus">+</span></button><div class="faq-a"><p>Yes, hosting and domain setup can be included depending on the project package.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can I see a demo before starting?<span class="plus">+</span></button><div class="faq-a"><p>Yes. Contact us and we can discuss your business and, when appropriate, prepare a concept or demo.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do I get started?<span class="plus">+</span></button><div class="faq-a"><p>Contact us through WhatsApp, email or the contact form. We'll discuss your business, requirements and the best solution for you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-info">
+      <h2>Ready to build your website?</h2>
+      <p class="lead">Tell us about your business and what you need. Let's create something professional together.</p>
+      <div class="ch-list">
+        <a href="https://wa.me/21625329426" target="_blank" rel="noopener">💬 WhatsApp — Chat With Us</a>
+        <a href="mailto:rayeng056@gmail.com">✉️ rayeng056@gmail.com</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">📷 @vergestudio</a>
+      </div>
+    </div>
+    <div>
+      <form id="contactForm">
+        <div class="frow">
+          <div class="field"><label>Full Name</label><input type="text" required></div>
+          <div class="field"><label>Business Name</label><input type="text" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Email</label><input type="email" required></div>
+          <div class="field"><label>Phone / WhatsApp</label><input type="tel" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Business Type</label><input type="text" placeholder="e.g. Restaurant, Retail, Services"></div>
+          <div class="field"><label>Website Needed</label>
+            <select><option>New Website</option><option>Redesign</option><option>Landing Page</option><option>E-Commerce</option></select>
+          </div>
+        </div>
+        <div class="field full" style="margin-bottom:16px">
+          <label>Budget Range</label>
+          <select><option>Not sure yet</option><option>Under 1,500 TND</option><option>1,500–4,000 TND</option><option>4,000 TND+</option></select>
+        </div>
+        <div class="field full" style="margin-bottom:6px">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your business and goals"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Request</button>
+        <p class="form-note">We usually respond within one business day.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <h3>Thanks — your request was sent.</h3>
+        <p>We'll get back to you shortly. Prefer a faster reply? Message us on WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <h3>Madeleine et Proust</h3>
-      <div class="tagline">Pâtisserie · Tunis</div>
-      <p>A refined pastry destination inspired by the art of French baking — crafted for those who believe that beauty belongs on the plate as much as on the palate.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/21654444777" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Vision Studio</div>
+        <p class="tag">Modern websites for ambitious businesses.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Business Websites</a></li><li><a href="#services">Landing Pages</a></li><li><a href="#services">E-commerce</a></li><li><a href="#services">Redesign</a></li><li><a href="#services">Maintenance</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="https://wa.me/21625329426" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:rayeng056@gmail.com">Email</a></li><li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li></ul>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#about">Notre Histoire</a></li>
-        <li><a href="#products">Nos Produits</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#reviews">Avis Clients</a></li>
-        <li><a href="#gallery">Galerie</a></li>
-      </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Vision Studio. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms</a></span>
     </div>
-    <div class="footer-col">
-      <h4>Produits</h4>
-      <ul>
-        <li><a href="#products">Madeleines</a></li>
-        <li><a href="#products">Macarons</a></li>
-        <li><a href="#products">Éclairs</a></li>
-        <li><a href="#products">Croissants</a></li>
-        <li><a href="#products">Gâteaux sur commande</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:+21654444777">+216 54 444 777</a></li>
-        <li><a href="https://wa.me/21654444777">WhatsApp</a></li>
-        <li><a href="https://madeleineetproust.com" target="_blank">madeleineetproust.com</a></li>
-        <li><a href="#contact">Envoyez un message</a></li>
-        <li><a href="#contact">B9 Résidence Essalem, Tunis</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Pâtisserie Madeleine et Proust. All rights reserved.</span>
-    <span>Crafted with <span style="color:var(--gold)">♥</span> in Tunis · <a href="#">Privacy Policy</a></span>
   </div>
 </footer>
 
-<!-- ============================================================
-     FLOATING BUTTONS
-============================================================ -->
-<div class="float-btns">
-  <a href="#contact" class="float-btn float-btn-order">
-    <i class="fa-solid fa-bag-shopping"></i>
-    <span class="float-label">Order Now</span>
-  </a>
-  <a href="https://wa.me/21654444777" class="float-btn float-btn-wa" target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i>
-    <span class="float-label">WhatsApp</span>
-  </a>
+<a href="https://wa.me/21625329426" target="_blank" rel="noopener" class="wa-float btn btn-wa">💬 WhatsApp</a>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div id="modalContent"></div>
+  </div>
 </div>
 
-<!-- ============================================================
-     JAVASCRIPT
-============================================================ -->
 <script>
-  /* ---- Navbar scroll ---- */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+// header compact on scroll + scroll progress bar
+const header = document.getElementById('siteHeader');
+const progress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('compact', window.scrollY > 30);
+  const h = document.documentElement;
+  const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progress.style.width = pct + '%';
+});
+
+// stagger reveal animations within each grid/group
+document.querySelectorAll('.svc-grid, .pf-grid, .proc-grid, .price-grid').forEach(group => {
+  group.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i * 0.08) + 's'; });
+});
+
+// mobile menu
+const hamBtn = document.getElementById('hamBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+    if (!isOpen) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
   });
+});
 
-  /* ---- Hero Ken-Burns ---- */
-  document.getElementById('hero').classList.add('loaded');
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+});
 
-  /* ---- Mobile nav toggle ---- */
-  const toggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+// Portfolio modal
+const projects = [
+  {name:"Pâtisserie Madeleine & Proust", cat:"Bakery / Food · Concept Project", challenge:"The bakery had no online presence, making it hard for new customers to discover the menu or find the location.", solution:"A warm, editorial one-page site presenting the menu, story and visiting information clearly.", design:"Soft, food-forward visuals paired with clean typography and generous whitespace to let the products stand out.", features:["Responsive design","Contact form","WhatsApp integration","Google Maps","Social media integration","SEO-ready structure"]},
+  {name:"Final Choice", cat:"Fashion / Streetwear · Concept Project", challenge:"An emerging streetwear label needed a site that matched the boldness of its collections.", solution:"An image-led layout structured around collection drops and direct social engagement.", design:"High-contrast typography and full-width imagery for a confident, current feel.", features:["Responsive design","WhatsApp integration","Social media integration","Fast-loading pages","SEO-ready structure"]},
+  {name:"Dar Lassaut", cat:"Café / Restaurant / Lounge · Concept Project", challenge:"The venue needed a digital presence that captured its atmosphere and simplified reservations.", solution:"A moody, atmospheric site pairing menu highlights with a clear reservation path.", design:"Rich imagery, dark accents and unhurried pacing to reflect the lounge experience.", features:["Responsive design","Contact forms","WhatsApp integration","Google Maps","Fast-loading pages"]},
+  {name:"Hotel Experience", cat:"Hospitality · Concept Project", challenge:"Guests needed an easy way to explore rooms and amenities before making a direct enquiry.", solution:"A calm, image-forward layout organized around rooms, amenities and enquiries.", design:"Generous imagery and a restrained palette to convey comfort and quality.", features:["Responsive design","Contact forms","Google Maps","Social media integration","SEO-ready structure"]},
+  {name:"Local Business Concept", cat:"Business Website · Concept Project", challenge:"Many local businesses lack a simple, trustworthy site that presents services clearly.", solution:"A clear one-page template covering services, contact details and location.", design:"A neutral, professional system built to adapt to different local business types.", features:["Responsive design","WhatsApp integration","Google Maps","Basic SEO structure","Fast-loading pages"]}
+];
+const modalBg = document.getElementById('modalBg');
+const modalContent = document.getElementById('modalContent');
+document.querySelectorAll('.pf-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const p = projects[card.dataset.p];
+    modalContent.innerHTML = `<h3>${p.name}</h3><div class="m-meta">${p.cat}</div>
+      <h4>Challenge</h4><p>${p.challenge}</p>
+      <h4>Solution</h4><p>${p.solution}</p>
+      <h4>Design</h4><p>${p.design}</p>
+      <h4>Features</h4><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>`;
+    modalBg.classList.add('open');
   });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
-  });
-
-  /* ---- Scroll reveal ---- */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => observer.observe(el));
-
-  /* ---- Animated counters ---- */
-  function animateCounter(el, target, decimal = false, duration = 2000) {
-    const start = performance.now();
-    const update = (time) => {
-      const progress = Math.min((time - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const val = decimal ? (eased * target).toFixed(1) : Math.floor(eased * target);
-      el.textContent = val;
-      if (progress < 1) requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-  }
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const nums = e.target.querySelectorAll('[data-target]');
-        nums.forEach(num => {
-          const target = parseFloat(num.dataset.target);
-          const decimal = num.dataset.decimal === 'true';
-          animateCounter(num, target, decimal);
-        });
-        counterObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.stats-strip').forEach(el => counterObserver.observe(el));
-
-  /* ---- Float btn label on hover ---- */
-  document.querySelectorAll('.float-btn').forEach(btn => {
-    const label = btn.querySelector('.float-label');
-    if (label) { label.style.display = 'inline'; }
-  });
-
-  /* ---- Form handlers ---- */
-  function handleNewsletter(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Subscribed!';
-    btn.style.background = '#4caf50';
-    setTimeout(() => { btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Subscribe'; btn.style.background = ''; }, 3000);
-  }
-
-  function handleContact(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-    btn.style.background = '#4caf50';
-    btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Send Message';
-      btn.style.background = '';
-      btn.style.color = '';
-      e.target.reset();
-    }, 3500);
-  }
-
-  function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  /* ---- Smooth active nav on scroll ---- */
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
-    });
-  }, { passive: true });
+});
+document.getElementById('modalClose').addEventListener('click', () => modalBg.classList.remove('open'));
+modalBg.addEventListener('click', e => { if (e.target === modalBg) modalBg.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') modalBg.classList.remove('open'); });
 </script>
 </body>
 </html>
